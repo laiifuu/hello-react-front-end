@@ -4,7 +4,7 @@ const LINK = 'http://127.0.0.1:3000/api/random_greeting';
 
 // initial state
 const initialState = {
-  greeting: ""
+  greeting: '',
 };
 
 // Reducer
@@ -22,9 +22,9 @@ export default function greetingsReducer(state = initialState, action) {
 }
 
 // Action Creators
-const setGreetingAction = (greeting_obj) => ({
+const setGreetingAction = (greetingObj) => ({
   type: SET_GREETING,
-  payload: greeting_obj,
+  payload: greetingObj,
 });
 
 const fetchGreetingObj = () => async (dispatch) => {
@@ -37,10 +37,10 @@ const fetchGreetingObj = () => async (dispatch) => {
     .then((result) => result.json())
     .then((res) => {
       const msg = {
-        greeting_text: res.greeting_text
+        greeting_text: res.greeting_text,
       };
       dispatch(setGreetingAction(msg));
     });
 };
 
-export { fetchGreetingObj, setGreetingAction};
+export { fetchGreetingObj, setGreetingAction };
